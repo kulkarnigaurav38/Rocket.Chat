@@ -1,6 +1,6 @@
 import { Box } from '@rocket.chat/fuselage';
 import dompurify from 'dompurify';
-import marked3 from 'marked3';
+import marked from 'marked';
 import React, { ComponentProps, FC, useMemo } from 'react';
 
 import { renderMessageEmoji } from '../lib/utils/renderMessageEmoji';
@@ -16,7 +16,7 @@ type MarkdownTextParams = {
 const linkMarked = (href: string | null, _title: string | null, text: string): string =>
 	`<a href="${href}" target="_blank" rel="nofollow">${text}</a> `;
 
-const defaultRenderer = new marked3.Renderer();
+const defaultRenderer = new marked.Renderer();
 defaultRenderer.link = linkMarked;
 
 const defaultOptions = {
@@ -36,13 +36,13 @@ const MarkdownText: FC<Partial<MarkdownTextParams>> = ({
 	const sanitizer = dompurify.sanitize;
 	const withRichContent = variant;
 
-	marked3.setOptions(defaultOptions);
+	marked.setOptions(defaultOptions);
 
 	const __html = useMemo(() => {
 		const html = ((): any => {
 			if (content && typeof content === 'string') {
 				const markedHtml =
-					variant === 'document' ? marked3.parse(content) : marked3.parseInline(content);
+					variant === 'document' ? marked.parse(content) : marked.parseInline(content);
 
 				if (parseEmoji) {
 					// We are using the old emoji parser here. This could come
