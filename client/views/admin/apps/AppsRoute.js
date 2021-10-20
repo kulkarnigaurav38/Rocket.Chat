@@ -78,12 +78,6 @@ function AppsRoute() {
 					{t('Marketplace')}
 				</Tabs.Item>
 			</Tabs>
-			{/* <Route path='/'>
-				<MarketplacePage />
-			</Route>
-			<Route path='/app'>
-				<AppInstallPage />
-			</Route> */}
 			{(!context && isMarketPlace && <MarketplacePage />) ||
 				(context === 'app' && <AppsPage />) ||
 				(context === 'details' && <AppDetailsPage id={id} marketplaceVersion={version} />) ||

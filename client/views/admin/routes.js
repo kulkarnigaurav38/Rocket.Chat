@@ -21,15 +21,10 @@ registerAdminRoute('/marketplace/:context?/:id?/:version?', {
 	lazyRouteComponent: () => import('./apps/AppsRoute'),
 });
 
-registerAdminRoute('/apps/:context?/:id?/:version?', {
-	name: 'admin-apps',
-	lazyRouteComponent: () => import('./apps/AppsRoute'),
-});
-
-registerAdminRoute('/info', {
-	name: 'admin-info',
-	lazyRouteComponent: () => import('./info/InformationRoute'),
-});
+// registerAdminRoute('/info', {
+// 	name: 'admin-info',
+// 	lazyRouteComponent: () => import('./info/InformationRoute'),
+// });
 
 registerAdminRoute('/import', {
 	name: 'admin-import',
