@@ -9,6 +9,7 @@ import MarketplaceTable from './MarketplaceTable';
 
 function MarketplacePage() {
 	const t = useTranslation();
+	
 	const cloudRoute = useRoute('cloud');
 	const [isLoggedInCloud, setIsLoggedInCloud] = useState();
 	const checkUserLoggedIn = useMethod('cloud:checkUserLoggedIn');
